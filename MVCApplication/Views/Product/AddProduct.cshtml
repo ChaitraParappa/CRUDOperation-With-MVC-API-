@@ -1,0 +1,29 @@
+﻿@model IEnumerable<MVCApplication.Models.Product>
+
+@{
+    ViewBag.Title = "AddProduct";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>AddProduct</h2>
+
+@using (Html.BeginForm("AddProduct", "Product", FormMethod.Post))
+{ 
+
+    <table>
+        <tr><td>@Html.Label("Product Name")</td>
+        <td>@Html.TextBox("name")</td></tr>
+        <tr>
+            <td>@Html.Label("Product Description")</td>
+            <td>@Html.TextBox("description")</td>
+        </tr>
+        <tr>
+            <td>@Html.Label("Product Price")</td>
+            <td>@Html.TextBox("price")</td>
+        </tr>
+        <tr><td></td><td><input type="submit" value="Submit" /></td></tr>
+    </table>
+
+    }
+
+
