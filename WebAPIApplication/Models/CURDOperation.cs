@@ -5,8 +5,8 @@ using System.Web;
 
 namespace WebAPIApplication.Models
 {
-    public class CURDOperation
-    {
+    public class CURDOperation: CRUDOperationRepository
+	{
         public void AddProduct(Product product)
         {
             using (CustomerDbContext customerDbContext = new CustomerDbContext())

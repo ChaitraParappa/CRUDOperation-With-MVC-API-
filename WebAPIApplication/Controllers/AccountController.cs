@@ -10,18 +10,18 @@ namespace WebAPIApplication.Controllers
 {
     public class AccountController : ApiController
     {
-        CURDOperation cURDOperation = new CURDOperation();
+		CRUDOperationRepository _cURDOperation = new CURDOperation();
 
         [HttpPost]
-        public IHttpActionResult Register(Product model)
+        public void Register(Product model)
         {
             try
             {
-                cURDOperation.AddProduct(model);
+				_cURDOperation.AddProduct(model);
                 
             }catch(Exception e)
             {
-                return Content(HttpStatusCode.BadRequest, e.ToString());
+                Content(HttpStatusCode.BadRequest, e.ToString());
             }
         }
 
@@ -29,14 +29,14 @@ namespace WebAPIApplication.Controllers
        [HttpGet]
         public IEnumerable<Product> GetDetails()
         {
-            IEnumerable<Product> result = cURDOperation.DisplayPoduct();
+            IEnumerable<Product> result = _cURDOperation.DisplayPoduct();
             return result;
         }
 
         [HttpGet]
         public IEnumerable<Product> GetDetails(int id)
         {
-            IEnumerable<Product> result = cURDOperation.EditProduct(id);
+            IEnumerable<Product> result = _cURDOperation.EditProduct(id);
             return result;
         }
         
@@ -44,12 +44,12 @@ namespace WebAPIApplication.Controllers
         [Route("api/Account/PutDetails")]
         public void PutDetails(Product product)
         {
-          cURDOperation.UpdateProduct(product.id, product);
+			_cURDOperation.UpdateProduct(product.id, product);
         }
         [HttpDelete]
         public void DeleteProduct(int id)
         {
-            cURDOperation.DeleteProduct(id);
+			_cURDOperation.DeleteProduct(id);
         }
     }
 }

@@ -199,6 +199,7 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Models\CRUDOperationRepository.cs" />
     <Compile Include="Models\CURDOperation.cs" />
     <Compile Include="Models\CustomerDbContext.cs" />
     <Compile Include="Models\Product.cs" />
